@@ -62,11 +62,11 @@ class User < ActiveRecord::Base
     short = 100
     tall = 185
     if height < short
-      true if self.height == "short"
+      true if self.height == "Short"
     elsif height > tall
-      true if self.height == "tall"
+      true if self.height == "Tall"
     else
-      true if self.height == "average"
+      true if self.height == "Average"
     end
     false
   end
@@ -75,11 +75,11 @@ class User < ActiveRecord::Base
     hefty = 100
     light = 50
     if weight < light
-      return true if self.weight == "light"
+      return true if self.weight == "Light"
     elsif weight > hefty
-      return true if self.weight == "hefty"
+      return true if self.weight == "Hefty"
     else
-      return true if self.weight == "average"
+      return true if self.weight == "Average"
     end
     false
   end
