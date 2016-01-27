@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new( whitelisted_user_params )
+    @user.match = find_match(SwCharacter.all)
     if @user.save
       flash[:notice] = "Successfully created a new user!"
       redirect_to user_path(@user)
@@ -17,7 +18,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
   end
 
   def edit
