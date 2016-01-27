@@ -20,23 +20,25 @@
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Eyes</h3>
-      <% SwCharacter::EYES.each do |eyes| %>
-        <p>
-          <%= f.check_box(:eyes, { :multiple => true }, eyes, nil) %>
-          <%= f.label eyes %>
-        </p>
-      <% end %>
-    </div>
+
+
+          <% SwCharacter::EYES.each do |eyes| %>
+
+            <%= f.check_box(:eyes, { :multiple => true }, eyes, nil) %>
+            <%= f.label eyes %>
+
+
+          <% end %>
+
+
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Hair</h3>
       <% SwCharacter::HAIR.each do |hair| %>
-        <p>
         <%= f.check_box(:hair, { :multiple => true }, hair, nil) %>
         <%= f.label hair %>
-      </p>
       <% end %>
     </div>
   </div>
@@ -45,10 +47,18 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Skin</h3>
       <% SwCharacter::SKIN.each do |skin| %>
-        <p>
           <%= f.check_box(:skin, { :multiple => true }, skin, nil) %>
           <%= f.label skin %>
-        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class ="col-sm-6 col-sm-offset-3">
+      <h3>Skin</h3>
+      <% SwCharacter::SKIN.each do |skin| %>
+          <%= f.check_box(:skin, { :multiple => true }, skin, nil) %>
+          <%= f.label skin %>
       <% end %>
     </div>
   </div>

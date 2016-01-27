@@ -9,6 +9,7 @@ class CreateSwCharacters < ActiveRecord::Migration
       t.string :hair
       t.string :eyes
       t.string :vehicle
+      t.string :starship
       t.string :language
       t.integer :height
       t.integer :mass
