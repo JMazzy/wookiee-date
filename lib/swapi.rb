@@ -16,6 +16,7 @@ class Swapi
       @people[key] = {}
       @people[key]['name'] = value['name']
       @people[key]['mass'] = value['mass']
+      @people[key]['height'] = value['height']
       @people[key]['hair_color'] = value['hair_color']
       @people[key]['skin_color'] = value['skin_color']
       @people[key]['eye_color'] = value['eye_color']
@@ -68,7 +69,7 @@ class Swapi
   def get_species
     get_species = {}
     idx = 1
-    while idx < 38
+    while idx <= 37
       get_species[idx] = HTTParty.get("http://swapi.co/api/species/#{idx}").parsed_response
       idx += 1
     end

@@ -87,13 +87,5 @@ class User < ActiveRecord::Base
       end
       false
     end
-    #
-    # def match_age?(age)
-    #   false
-    # end
 
 end
-
-# t.string :vehicle
-# t.string :starship
-# t.string :language
