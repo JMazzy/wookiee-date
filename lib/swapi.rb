@@ -23,7 +23,7 @@ class Swapi
       @people[key]['gender'] = value['gender']
       @people[key]['vehicles'] = get_vehicles(value['vehicles']) unless value['vehicles'].empty?
       @people[key]['starships'] = get_starships(value['starships']) unless value['starships'].empty?
-      @people[key]['species'] = set_species(value['species'][0])
+      @people[key]['species'] = set_species(value['species'][0]) unless value['species'].empty?
     end
   end
 
@@ -68,7 +68,7 @@ class Swapi
   def get_species
     get_species = {}
     idx = 1
-    while idx < 38
+    while idx <= 37
       get_species[idx] = HTTParty.get("http://swapi.co/api/species/#{idx}").parsed_response
       idx += 1
     end
