@@ -95,6 +95,12 @@ class Swapi
     starships
   end
 
+  def populate_characters
+    get_species
+    get_species_attr
+    get_people
+    get_people_attr
+  end
 
 
 
