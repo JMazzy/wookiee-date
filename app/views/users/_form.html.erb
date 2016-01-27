@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
-      <h1>Create Your WookieeDate Profile!</h1>
+      <h1 class = 'well'>Create Your WookieeDate Profile!</h1>
 
       <h2> Your Information </h2>
 
@@ -9,37 +9,31 @@
         <%= f.select :gender, ["male", "female", "other"], {}, {class: "form-control"} %>
 
         <%= f.label :seeking_gender %>
-        <%= f.select :seeking_gender, ["male", "female", "other"] %>
-
+        <%= f.select :seeking_gender, ["male", "female", "other"], {}, {class: "form-control"} %>
+        <br />
         <%= f.label :age %>
-        <%= f.text_field :age %>
+        <%= f.text_field :age , :class => "form-control" %>
 
       <h2> Your Preferences </h2>
     </div>
   </div>
 
   <div class="row">
-    <div class ="col-sm-6 col-sm-offset-3">
+    <div class ="col-sm-3 col-sm-offset-3">
       <h3>Eyes</h3>
-
-
-          <% SwCharacter::EYES.each do |eyes| %>
-
-            <%= f.check_box(:eyes, { :multiple => true }, eyes, nil) %>
-            <%= f.label eyes %>
-
-
-          <% end %>
-
-
+        <% SwCharacter::EYES.each do |eyes| %>
+          <%= f.check_box(:eyes, { :multiple => true, :class => 'form-control' }, eyes, nil) %>
+          <%= f.label eyes %><span class = "glyphicon glyphicon-eye-open"></span>
+        <% end %>
+    </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Hair</h3>
       <% SwCharacter::HAIR.each do |hair| %>
-        <%= f.check_box(:hair, { :multiple => true }, hair, nil) %>
-        <%= f.label hair %>
+        <%= f.check_box(:hair, { :multiple => true, :class => 'form-control' }, hair, nil) %>
+        <%= f.label hair %><span class ="glyphicon glyphicon-heart-empty"></span>
       <% end %>
     </div>
   </div>
@@ -48,7 +42,7 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Skin</h3>
       <% SwCharacter::SKIN.each do |skin| %>
-          <%= f.check_box(:skin, { :multiple => true }, skin, nil) %>
+          <%= f.check_box(:skin, { :multiple => true, :class => 'form-control' }, skin, nil) %>
           <%= f.label skin %>
       <% end %>
     </div>
@@ -57,9 +51,9 @@
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Skin</h3>
-      <% SwCharacter::SKIN.each do |skin| %>
-          <%= f.check_box(:skin, { :multiple => true }, skin, nil) %>
-          <%= f.label skin %>
+      <% SwCharacter::VEHICLE.each do |vehic| %>
+          <%= f.check_box(:vehicle, { :multiple => true, :class => 'form-control' }, vehic, nil) %>
+          <%= f.label vehic %>
       <% end %>
     </div>
   </div>
@@ -67,21 +61,21 @@
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <%= f.label :height %>
-      <%= f.select :height, ["Taller Than Me", "Shorter Than Me", "Similar Height"] %>
+      <%= f.select :height, ["Taller Than Me", "Shorter Than Me", "Similar Height"], {}, {class: "form-control"} %>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <%= f.label :mass %>
-      <%= f.select :mass, ["Heftier Than Me", "Slimmer Than Me", "Similar Mass"] %>
+      <%= f.select :mass, ["Heftier Than Me", "Slimmer Than Me", "Similar Mass"], {}, {class: "form-control"} %>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <%= f.label :seeking_age %>
-      <%= f.select :seeking_age, ["Older Than Me", "Younger Than Me", "Similar Age", "Spooky Ghost"] %>
+      <%= f.select :seeking_age, ["Older Than Me", "Younger Than Me", "Similar Age", "Spooky Ghost"], {}, {class: "form-control"} %>
     </div>
   </div>
 

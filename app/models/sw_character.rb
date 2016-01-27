@@ -7,5 +7,7 @@ class SwCharacter < ActiveRecord::Base
   GENDER = self.all.map{ |entry| entry.gender }.uniq
   HEIGHT = self.all.map{ |entry| entry.height }.uniq
   MASS = self.all.map{ |entry| entry.mass }.uniq
+  VEHICLE = self.all.map{ |entry| entry.vehicle}.compact.flatten.uniq.flatten
+
 
 end
