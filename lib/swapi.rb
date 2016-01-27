@@ -23,6 +23,7 @@ class Swapi
       @people[key]['gender'] = value['gender']
       @people[key]['vehicles'] = get_vehicles(value['vehicles']) unless value['vehicles'].empty?
       @people[key]['starships'] = get_starships(value['starships']) unless value['starships'].empty?
+      @people[key]['species'] = set_species(value['species'][0])
     end
   end
 
@@ -72,6 +73,10 @@ class Swapi
       idx += 1
     end
     get_species
+  end
+
+  def set_species(url)
+    @species[url.match(/(\d+)/)[1].to_i]
   end
 
   def get_vehicles(vehicles_url)
