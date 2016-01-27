@@ -59,11 +59,11 @@ class User < ActiveRecord::Base
   end
 
   def match_height?(height)
-    SHORT = 100
-    TALL = 185
-    if height < SHORT
+    short = 100
+    tall = 185
+    if height < short
       true if self.height == "short"
-    elsif height > TALL
+    elsif height > tall
       true if self.height == "tall"
     else
       true if self.height == "average"
@@ -72,11 +72,11 @@ class User < ActiveRecord::Base
   end
 
   def match_weight?(weight)
-    HEFTY = 100
-    LIGHT = 50
-    if weight < LIGHT
+    hefty = 100
+    light = 50
+    if weight < light
       return true if self.weight == "light"
-    elsif weight > HEFTY
+    elsif weight > hefty
       return true if self.weight == "hefty"
     else
       return true if self.weight == "average"
@@ -85,10 +85,10 @@ class User < ActiveRecord::Base
   end
 
   def match_lifespan?(lifespan)
-    CUTOFF = 120
-    if lifespan < CUTOFF
+    cutoff = 120
+    if lifespan < cutoff
       return true if self.lifespan == "Die Quick"
-    elsif lifespan > CUTOFF
+    elsif lifespan > cutoff
       return true if self.lifespan == "Live Long"
     else
       return true if self.lifespan == "Average"
