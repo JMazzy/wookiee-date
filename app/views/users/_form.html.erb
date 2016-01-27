@@ -1,0 +1,75 @@
+<%= form_for @user do |f| %>
+<div class="row">
+  <div class ="col-sm-6 col-sm-offset-3">
+    <h1> Your Information </h1>
+
+        <%= f.label :gender %>
+        <%= f.select :gender, ["male", "female", "other"], {}, {class: "form-control"} %>
+
+        <%= f.label :seeking_gender %>
+        <%= f.select :seeking_gender, ["male", "female", "other"] %>
+
+        <%= f.label :age %>
+        <%= f.text_field :age %>
+
+      <h1> Your Preferences </h1>
+    </div>
+  </div>
+
+      <div class="row">
+        <div class ="col-sm-6 col-sm-offset-3">
+          <h3>"Eyes"</h3>
+          <% SwCharacter::EYES.each do |eyes| %>
+            <p>
+              <%= f.check_box(:eyes, { :multiple => true }, eyes, nil) %>
+              <%= f.label eyes %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class ="col-sm-6 col-sm-offset-3">
+          <h3>"Hair"</h3>
+          <% SwCharacter::HAIR.each do |hair| %>
+            <p>
+            <%= f.check_box(:hair, { :multiple => true }, hair, nil) %>
+            <%= f.label hair %>
+          </p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class ="col-sm-6 col-sm-offset-3">
+        <% SwCharacter::SKIN.each do |skin| %>
+
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class ="col-sm-6 col-sm-offset-3">
+        <%= f.label :height %>
+        <%= f.select :height, ["Taller Than Me", "Shorter Than Me", "Similar Height"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class ="col-sm-6 col-sm-offset-3">
+        <%= f.label :mass %>
+        <%= f.select :mass, ["Heftier Than Me", "Slimmer Than Me", "Similar Mass"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class ="col-sm-6 col-sm-offset-3">
+        <%= f.label :seeking_age %>
+        <%= f.select :seeking_age, ["Older Than Me", "Younger Than Me", "Similar Mass", "Spooky Ghost"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class ="col-sm-6 col-sm-offset-3">
+        <%= f.submit "Create", :class => "btn btn-success" %>
+      </div>
+    </div>
+
+      <% end %>
