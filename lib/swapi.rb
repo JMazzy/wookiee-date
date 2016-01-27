@@ -1,6 +1,6 @@
-require 'httparty'
+# require 'httparty'
 
-include HTTParty  
+# include HTTParty  
   
 class Swapi
 
@@ -16,7 +16,7 @@ class Swapi
   def get_people
     get_people = {}
     idx = 1
-    while idx < 3
+    while idx < 2
       get_people[idx] = HTTParty.get("http://swapi.co/api/people/#{idx}").parsed_response
       idx +=1
     end
@@ -90,7 +90,7 @@ class Swapi
 
 end
 
-sw = Swapi.new
-sw.get_species
-sw.get_species_attr
-print sw.species
+# sw = Swapi.new
+# sw.get_species
+# sw.get_species_attr
+# print sw.species
