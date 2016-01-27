@@ -24,7 +24,7 @@ class Swapi
       @people[key]['gender'] = value['gender']
       @people[key]['vehicles'] = get_vehicles(value['vehicles']) unless value['vehicles'].empty?
       @people[key]['starships'] = get_starships(value['starships']) unless value['starships'].empty?
-      @people[key]['species'] = set_species(value['species'][0])
+      @people[key]['species'] = set_species(value['species'][0]) unless value['species'].empty?
     end
   end
 
