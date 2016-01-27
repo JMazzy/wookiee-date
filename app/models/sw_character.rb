@@ -7,7 +7,10 @@ class SwCharacter < ActiveRecord::Base
   GENDER = self.all.map{ |entry| entry.gender }.uniq
   HEIGHT = self.all.map{ |entry| entry.height }.uniq
   MASS = self.all.map{ |entry| entry.mass }.uniq
-  VEHICLE = self.all.map{ |entry| entry.vehicle}.compact.flatten.uniq.flatten
-
-
+  VEHICLE = self.all.map{ |entry| entry.vehicle}.compact.flatten.uniq
+  STARSHIP = self.all.map{ |entry| entry.starship}.compact.flatten.uniq
+  SPECIES = self.all.map{ |entry| entry.species }.uniq
+  CLASSIFICATION = self.all.map{ |entry| entry.species_class }.uniq
+  LANGUAGE = self.all.map{ |entry| entry.language }.uniq
+  LIFESPAN = self.all.map{ |entry| entry.lifespan }.uniq
 end

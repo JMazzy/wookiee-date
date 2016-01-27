@@ -152,9 +152,9 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
-  chartkick
+  chartkick (~> 1.4.1)
   coffee-rails (~> 4.1.0)
-  httparty
+  httparty (~> 0.13.7)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.5)

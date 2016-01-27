@@ -9,9 +9,7 @@
 
         <%= f.label :seeking_gender %>
         <%= f.select :seeking_gender, ["male", "female", "other"], {}, {class: "form-control"} %>
-        <br />
-        <%= f.label :age %>
-        <%= f.text_field :age , :class => "form-control" %>
+
 
       <h2> Your Preferences </h2>
     </div>
@@ -59,24 +57,66 @@
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
+      <h3>Skin</h3>
+      <% SwCharacter::STARSHIP.each do |star| %>
+          <%= f.check_box(:starship, { :multiple => true, :class => 'form-control' }, star, nil) %>
+          <%= f.label star %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class ="col-sm-6 col-sm-offset-3">
+      <h3>Skin</h3>
+      <% SwCharacter::SPECIES.each do |spec| %>
+          <%= f.check_box(:species, { :multiple => true, :class => 'form-control' }, spec, nil) %>
+          <%= f.label spec %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class ="col-sm-6 col-sm-offset-3">
+      <h3>Skin</h3>
+      <% SwCharacter::CLASSIFICATION.each do |classif| %>
+          <%= f.check_box(:species_class, { :multiple => true, :class => 'form-control' }, classif, nil) %>
+          <%= f.label classif %>
+      <% end %>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class ="col-sm-6 col-sm-offset-3">
+      <h3>Skin</h3>
+      <% SwCharacter::LANGUAGE.each do |lang| %>
+          <%= f.check_box(:language, { :multiple => true, :class => 'form-control' }, lang, nil) %>
+          <%= f.label lang %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class ="col-sm-6 col-sm-offset-3">
+      <%= f.label :lifespan %>
+      <%= f.select :lifespan, ["Die Quick", "Average", "Live Long"], {}, {class: "form-control"} %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class ="col-sm-6 col-sm-offset-3">
       <%= f.label :height %>
-      <%= f.select :height, ["Taller Than Me", "Shorter Than Me", "Similar Height"], {}, {class: "form-control"} %>
+      <%= f.select :height, ["Short", "Average", "Tall"], {}, {class: "form-control"} %>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <%= f.label :mass %>
-      <%= f.select :mass, ["Heftier Than Me", "Slimmer Than Me", "Similar Mass"], {}, {class: "form-control"} %>
+      <%= f.select :mass, ["Hefty", "Slim", "Average"], {}, {class: "form-control"} %>
     </div>
   </div>
 
-  <div class="row">
-    <div class ="col-sm-6 col-sm-offset-3">
-      <%= f.label :seeking_age %>
-      <%= f.select :seeking_age, ["Older Than Me", "Younger Than Me", "Similar Age", "Spooky Ghost"], {}, {class: "form-control"} %>
-    </div>
-  </div>
+
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
