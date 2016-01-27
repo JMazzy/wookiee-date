@@ -11,7 +11,7 @@ swap = Swapi.new
 swap.get_people
 swap.get_people_attr
 
-1.times do |num|
+10.times do |num|
   hash = swap.people[num+1]
   char = SwCharacter.new(:name => hash['name'], :gender => hash['gender'], :mass => hash['mass'], :hair => hash['hair_color'], :eyes => hash['eye_color'], :skin => hash['skin_color'], :age => hash['birth_year'])
   char.save
