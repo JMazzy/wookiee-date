@@ -40,8 +40,8 @@ class SwCharacter < ActiveRecord::Base
     all.map { |entry| entry.mass }
   end
 
-  # t.string :species
-  # t.string :species_class
-  # t.string :vehicle / :starship
+  # :species
+  # :species_class
+  # :vehicle / :starship combined
 
 end
