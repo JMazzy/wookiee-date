@@ -16,7 +16,7 @@ class Swapi
   def get_people
     get_people = {}
     idx = 1
-    while idx < 2
+    while idx <= 10
       get_people[idx] = HTTParty.get("http://swapi.co/api/people/#{idx}").parsed_response
       idx +=1
     end
