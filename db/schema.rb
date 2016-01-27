@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160127180042) do
     t.string   "hair"
     t.string   "eyes"
     t.string   "vehicle"
+    t.string   "starship"
     t.string   "language"
     t.integer  "height"
     t.integer  "mass"
