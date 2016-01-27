@@ -13,8 +13,8 @@
 
       <h1> Your Preferences </h1>
 
-        
-        <% SwCharacter::Species.each do |spec| %>
+
+        <!-- <% SwCharacter::Species.each do |spec| %>
           <%= f.label :spec %>
           <%= f.check_box(:species, { :multiple => true }, spec, nil) %>
         <% end %>
@@ -25,19 +25,19 @@
         <% end %>
 
         <%= f.label :lifespan %>
-        <%= f.select :lifespan, ["Human", "Less Than Human", "Yoda-like"] %>
+        <%= f.select :lifespan, ["Human", "Less Than Human", "Yoda-like"] %> -->
 
-        <% SwCharacter::Eyes.each do |eye| %>
+        <% SwCharacter::EYES.each do |eye| %>
           <%= f.label :eye %>
           <%= f.check_box(:eye_color, { :multiple => true }, eye, nil) %>
         <% end %>
 
-        <% SwCharacter::Hairs.each do |hair| %>
+        <% SwCharacter::HAIR.each do |hair| %>
           <%= f.label :hair %>
           <%= f.check_box(:hair_color, { :multiple => true }, hair, nil) %>
         <% end %>
 
-        <% SwCharacter::Skins.each do |skin| %>
+        <% SwCharacter::SKIN.each do |skin| %>
           <%= f.label :skin %>
           <%= f.check_box(:skin_color, { :multiple => true }, skin, nil) %>
         <% end %>
@@ -51,25 +51,25 @@
         <%= f.label :seeking_age %>
         <%= f.select :seeking_age, ["Older Than Me", "Younger Than Me", "Similar Mass", "Spooky Ghost"] %>
 
-        <h1> What Languages Do You Speak Or Want To Learn? </h1>
+        <!-- <h1> What Languages Do You Speak Or Want To Learn? </h1> -->
 
-        <% User::Languages.each do |lang| %>
+        <!-- <% User::Languages.each do |lang| %>
           <%= f.label :lang %>
           <%= f.check_box(:languages, { :multiple => true }, lang, nil) %>
-        <% end %>
+        <% end %> -->
 
+<!--
+        <h1> What Vehicles Are You Licensed To Drive? </h1> -->
 
-        <h1> What Vehicles Are You Licensed To Drive? </h1>
-
-        <% User::Vehicles.each do |vehic| %>
+        <!-- <% User::Vehicles.each do |vehic| %>
           <%= f.label :vehic %>
           <%= f.check_box(:vehicles, { :multiple => true }, vehic, nil) %>
-        <% end %> 
+        <% end %>
 
         <% User::Starships.each do |star| %>
           <%= f.label :star %>
           <%= f.check_box(:starships, { :multiple => true }, star, nil) %>
-        <% end %> 
+        <% end %> -->
 
         <%= f.submit "Create", :class => "btn btn-success" %>
 

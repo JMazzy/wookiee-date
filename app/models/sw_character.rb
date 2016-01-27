@@ -1,48 +1,11 @@
 class SwCharacter < ActiveRecord::Base
 
- HAIR = self.all.map{ |entry| entry.hair }
-  # def self.hair
-  #   self.all.map { |entry| entry.hair }
-  # end
-
-  # def self.eyes
-  #   self.all.map { |entry| entry.eyes }
-  # end
-
-  # def self.skin
-  #   self.all.map { |entry| entry.skin }
-  # end
-
-  # def self.age
-  #   self.all.map { |entry| entry.age }
-  # end
-
-  # # def self.lifespan
-  # #   self.all.map { |entry| entry.lifespan }
-  # # end
-
-  # def self.gender
-  #   self.all.map { |entry| entry.gender }
-  # end
-
-  # def self.name
-  #   self.all.map { |entry| entry.name }
-  # end
-
-  # def self.language
-  #   self.all.map { |entry| entry.language }
-  # end
-
-  # def self.height
-  #   self.all.map { |entry| entry.height }
-  # end
-
-  # def self.mass
-  #   self.all.map { |entry| entry.mass }
-  # end
-
-  # :species
-  # :species_class
-  # :vehicle / :starship combined
+  HAIR = self.all.map{ |entry| entry.hair }
+  EYES = self.all.map{ |entry| entry.eyes }
+  SKIN = self.all.map{ |entry| entry.skin }
+  AGE = self.all.map{ |entry| entry.age }
+  GENDER = self.all.map{ |entry| entry.gender }
+  HEIGHT = self.all.map{ |entry| entry.height }
+  MASS = self.all.map{ |entry| entry.mass }
 
 end
