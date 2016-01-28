@@ -43,11 +43,13 @@ ActiveRecord::Schema.define(version: 20160127180042) do
     t.string   "hair"
     t.string   "eyes"
     t.string   "vehicle"
+    t.string   "starship"
     t.string   "language"
-    t.integer  "height"
-    t.integer  "mass"
-    t.integer  "lifespan"
-    t.integer  "seeking_age"
+    t.string   "height"
+    t.string   "mass"
+    t.string   "lifespan"
+    t.string   "seeking_age"
+    t.string   "match"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

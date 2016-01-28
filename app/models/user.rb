@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
       match_count += 1 if match_eyes?(character.eyes)
       match_count += 1 if match_skin?(character.skin)
       match_count += 1 if match_gender?(character.gender)
-      match_count += 1 if match_weight?(character.weight)
+      match_count += 1 if match_weight?(character.mass)
       match_count += 1 if match_height?(character.height)
       match_count += 1 if match_species?(character.species)
       match_count += 1 if match_species_class?(character.species_class)
@@ -31,11 +31,14 @@ class User < ActiveRecord::Base
   end
 
   def match_gender?(gender)
-    self.seeking_gender == gender
+    self.seeking_gender == gender if gender
   end
 
   def match_species?(species)
-    self.species.include?( species )
+    if species
+      self.species.include?( species )
+    end
+    false
   end
 
   def match_species_class?(species_class)
@@ -61,37 +64,43 @@ class User < ActiveRecord::Base
   def match_height?(height)
     short = 100
     tall = 185
-    if height < short
-      true if self.height == "Short"
-    elsif height > tall
-      true if self.height == "Tall"
-    else
-      true if self.height == "Average"
+    if height
+      if height < short
+        true if self.height == "Short"
+      elsif height > tall
+        true if self.height == "Tall"
+      else
+        true if self.height == "Average"
+      end
     end
     false
   end
 
-  def match_weight?(weight)
+  def match_weight?(mass)
     hefty = 100
     light = 50
-    if weight < light
-      return true if self.weight == "Light"
-    elsif weight > hefty
-      return true if self.weight == "Hefty"
-    else
-      return true if self.weight == "Average"
+    if mass
+      if mass < light
+        return true if self.mass == "Light"
+      elsif mass > hefty
+        return true if self.mass == "Hefty"
+      else
+        return true if self.mass == "Average"
+      end
     end
     false
   end
 
   def match_lifespan?(lifespan)
     cutoff = 120
-    if lifespan < cutoff
-      return true if self.lifespan == "Die Quick"
-    elsif lifespan > cutoff
-      return true if self.lifespan == "Live Long"
-    else
-      return true if self.lifespan == "Average"
+    if lifespan
+      if lifespan < cutoff
+        return true if self.lifespan == "Die Quick" && lifespan
+      elsif lifespan > cutoff
+        return true if self.lifespan == "Live Long" && lifespan
+      else
+        return true if self.lifespan == "Average" && lifespan
+      end
     end
     false
   end

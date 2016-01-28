@@ -16,10 +16,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :vehicle
       t.string :starship
       t.string :language
-      t.integer :height
-      t.integer :mass
-      t.integer :lifespan
-      t.integer :seeking_age
+      t.string :height
+      t.string :mass
+      t.string :lifespan
+      t.string :seeking_age
       t.string :match
 
       t.timestamps null: false

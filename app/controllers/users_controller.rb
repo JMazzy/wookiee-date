@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new( whitelisted_user_params )
-    @user.match = find_match(SwCharacter.all)
+    @user = User.new(whitelisted_user_params)
     if @user.save
       flash[:notice] = "Successfully created a new user!"
       redirect_to user_path(@user)
@@ -49,6 +48,6 @@ class UsersController < ApplicationController
   private
 
   def whitelisted_user_params
-    params.require(:user).permit(:name, :age, :gender, :seeking_gender, :species, :species_class, :skin, :hair, :eyes, :vehicle, :language, :height, :mass, :lifespan, :seeking_age)
+    params.require(:user).permit(:name, :age, :gender, :seeking_gender, [:species], :species_class, :skin, :hair, :eyes, :vehicle, :language, :height, :mass, :lifespan, :seeking_age)
   end
 end

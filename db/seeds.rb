@@ -13,7 +13,7 @@ swap.get_people
 swap.get_people_attr
 
 
-88.times do |num|
+1.times do |num|
   hash = swap.people[num+1]
   char = SwCharacter.new(:name => hash['name'], :gender => hash['gender'], :mass => hash['mass'], :hair => hash['hair_color'], :eyes => hash['eye_color'], :skin => hash['skin_color'], :age => hash['birth_year'], :vehicle => hash['vehicles'], :starship => hash['starships'], :species => hash['species']['name'], :species_class => hash['species']['classification'], :language => hash['species']['language'], :lifespan => hash['species']['lifespan'])
   char.save
