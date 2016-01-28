@@ -19,8 +19,8 @@
     <div class ="col-sm-3 col-sm-offset-3">
       <h3>Eyes</h3>
         <% SwCharacter::EYES.each do |eyes| %>
-          <%= f.check_box(:eyes, { :multiple => true, :class => 'form-control' }, eyes, nil) %>
-          <%= f.label eyes %><span class = "glyphicon glyphicon-eye-open"></span>
+            <%= f.label :eyes, eyes, :value => eyes %><br>
+            <%= f.radio_button :eyes, eyes, {class: "form-control"} %><span class = "glyphicon glyphicon-eye-open"></span>
         <% end %>
     </div>
   </div>
@@ -29,8 +29,8 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Hair</h3>
       <% SwCharacter::HAIR.each do |hair| %>
-        <%= f.check_box(:hair, { :multiple => true, :class => 'form-control' }, hair, nil) %>
-        <%= f.label hair %><span class ="glyphicon glyphicon-heart-empty"></span>
+            <%= f.label :hair, hair, :value => hair %><br>
+            <%= f.radio_button :hair, hair, {class: "form-control"} %>
       <% end %>
     </div>
   </div>
@@ -39,8 +39,8 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Skin</h3>
       <% SwCharacter::SKIN.each do |skin| %>
-          <%= f.check_box(:skin, { :multiple => true, :class => 'form-control' }, skin, nil) %>
-          <%= f.label skin %>
+            <%= f.label :skin, skin, :value => skin %><br>
+            <%= f.radio_button :skin, skin, {class: "form-control"} %>
       <% end %>
     </div>
   </div>
@@ -49,8 +49,8 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Vehicle</h3>
       <% SwCharacter::VEHICLE.each do |vehic| %>
-          <%= f.check_box(:vehicle, { :multiple => true, :class => 'form-control' }, vehic, nil) %>
-          <%= f.label vehic %>
+          <%= f.label :vehicle, vehic, :value => vehic %><br>
+          <%= f.radio_button :vehicle, vehic, {class: "form-control"} %>
       <% end %>
     </div>
   </div>
@@ -59,8 +59,8 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Starship</h3>
       <% SwCharacter::STARSHIP.each do |star| %>
-          <%= f.check_box(:starship, { :multiple => true, :class => 'form-control' }, star, nil) %>
-          <%= f.label star %>
+          <%= f.label :starship, star, :value => star %><br>
+          <%= f.radio_button :starship, star, {class: "form-control"} %>
       <% end %>
     </div>
   </div>
@@ -69,8 +69,8 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Species</h3>
       <% SwCharacter::SPECIES.each do |spec| %>
-          <%= f.check_box(:species, { :multiple => true, :class => 'form-control' }, spec, nil) %>
-          <%= f.label spec %>
+            <%= f.label :species, spec, :value => spec %><br>
+            <%= f.radio_button :species_class, spec, {class: "form-control"} %>
       <% end %>
     </div>
   </div>
@@ -79,8 +79,8 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Classification</h3>
       <% SwCharacter::CLASSIFICATION.each do |classif| %>
-          <%= f.check_box(:species_class, { :multiple => true, :class => 'form-control' }, classif, nil) %>
-          <%= f.label classif %>
+            <%= f.label :species_class, classif, :value => classif %><br>
+            <%= f.radio_button :species_class, classif, {class: "form-control"} %>
       <% end %>
     </div>
   </div>
@@ -89,8 +89,8 @@
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Language</h3>
       <% SwCharacter::LANGUAGE.each do |lang| %>
-          <%= f.check_box(:language, { :multiple => true, :class => 'form-control' }, lang, nil) %>
-          <%= f.label lang %>
+            <%= f.label :language, lang, :value => lang %><br>
+            <%= f.radio_button :language, lang, {class: "form-control"} %>
       <% end %>
     </div>
   </div>

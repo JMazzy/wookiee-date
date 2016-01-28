@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   def find_match(characters)
     matches = []
     characters.each do |character|
@@ -12,36 +11,29 @@ class User < ActiveRecord::Base
       match_count += 1 if match_height?(character.height)
       match_count += 1 if match_species?(character.species)
       match_count += 1 if match_species_class?(character.species_class)
-
       matches << [ character.name, match_count]
     end
+    self.match = matches
     matches
   end
-
   def match_hair?(hair)
     hair && self.hair == hair
   end
-
   def match_eyes?(eyes)
     eyes && self.eyes == eyes
   end
-
   def match_skin?(skin)
     skin && self.skin == skin
   end
-
   def match_gender?(gender)
     gender && self.seeking_gender == gender
   end
-
   def match_species?(species)
     species && self.species == species
   end
-
   def match_species_class?(species_class)
     species_class && self.species_class == species_class
   end
-
   def match_vehicle?(vehicle)
     if vehicle
       vehicle.each do |v|
@@ -50,7 +42,6 @@ class User < ActiveRecord::Base
     end
     false
   end
-
   def match_starship?(starship)
     if starship
       starship.each do |ss|
@@ -59,11 +50,9 @@ class User < ActiveRecord::Base
     end
     false
   end
-
   def match_language?(language)
     language && self.language == language
   end
-
   def match_height?(height)
     short = 100
     tall = 185
@@ -79,7 +68,6 @@ class User < ActiveRecord::Base
       false
     end
   end
-
   def match_weight?(mass)
     hefty = 100
     light = 50
@@ -95,7 +83,6 @@ class User < ActiveRecord::Base
       false
     end
   end
-
   def match_lifespan?(lifespan)
     cutoff = 120
     if lifespan
@@ -110,5 +97,4 @@ class User < ActiveRecord::Base
       false
     end
   end
-
 end
