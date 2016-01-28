@@ -19,46 +19,49 @@ class User < ActiveRecord::Base
   end
 
   def match_hair?(hair)
-    self.hair.include?( hair )
+    hair && self.hair == hair
   end
 
   def match_eyes?(eyes)
-    self.eyes.include?( eyes )
+    eyes && self.eyes == eyes
   end
 
   def match_skin?(skin)
-    self.skin.include?( skin )
+    skin && self.skin == skin
   end
 
   def match_gender?(gender)
-    self.seeking_gender == gender if gender
+    gender && self.seeking_gender == gender
   end
 
   def match_species?(species)
-    if species
-      self.species.include?( species )
+    species && self.species == species
+  end
+
+  def match_species_class?(species_class)
+    species_class && self.species_class == species_class
+  end
+
+  def match_vehicle?(vehicle)
+    if vehicle
+      vehicle.each do |v|
+        return true if self.vehicle == v
+      end
     end
     false
   end
 
-  def match_species_class?(species_class)
-    self.species_class.include?( species_class )
-  end
-
-  def match_vehicle?(vehicle)
-    vehicle.each do |v|
-      return true if self.vehicle.include?( v )
-    end
-  end
-
   def match_starship?(starship)
-    starship.each do |ss|
-      return true if self.starship.include?( ss )
+    if starship
+      starship.each do |ss|
+        return true if self.starship == ss
+      end
     end
+    false
   end
 
   def match_language?(language)
-    self.language.include?( language )
+    language && self.language == language
   end
 
   def match_height?(height)
@@ -72,8 +75,9 @@ class User < ActiveRecord::Base
       else
         true if self.height == "Average"
       end
+    else
+      false
     end
-    false
   end
 
   def match_weight?(mass)
@@ -87,8 +91,9 @@ class User < ActiveRecord::Base
       else
         return true if self.mass == "Average"
       end
+    else
+      false
     end
-    false
   end
 
   def match_lifespan?(lifespan)
@@ -101,8 +106,9 @@ class User < ActiveRecord::Base
       else
         return true if self.lifespan == "Average" && lifespan
       end
+    else
+      false
     end
-    false
   end
 
 end
