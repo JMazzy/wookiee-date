@@ -17,40 +17,22 @@ class User < ActiveRecord::Base
     matches
   end
   def match_hair?(hair)
-    if hair
-      self.hair == hair
-    end
-    false
+    hair && self.hair == hair
   end
   def match_eyes?(eyes)
-    if eyes
-      self.eyes == eyes
-    end
-    false
+    eyes && self.eyes == eyes
   end
   def match_skin?(skin)
-    if skin
-      self.skin == skin
-    end
-    false
+    skin && self.skin == skin
   end
   def match_gender?(gender)
-    if gender
-      self.seeking_gender == gender
-    end
-    false
+    gender && self.seeking_gender == gender
   end
   def match_species?(species)
-    if species
-      self.species == species
-    end
-    false
+    species && self.species == species
   end
   def match_species_class?(species_class)
-    if species
-      self.species_class == species_class
-    end
-    false
+    species_class && self.species_class == species_class
   end
   def match_vehicle?(vehicle)
     if vehicle
@@ -69,9 +51,7 @@ class User < ActiveRecord::Base
     false
   end
   def match_language?(language)
-    if language
-      self.language == language
-    end
+    language && self.language == language
   end
   def match_height?(height)
     short = 100
@@ -84,8 +64,9 @@ class User < ActiveRecord::Base
       else
         true if self.height == "Average"
       end
+    else
+      false
     end
-    false
   end
   def match_weight?(mass)
     hefty = 100
@@ -98,8 +79,9 @@ class User < ActiveRecord::Base
       else
         return true if self.mass == "Average"
       end
+    else
+      false
     end
-    false
   end
   def match_lifespan?(lifespan)
     cutoff = 120
@@ -111,7 +93,8 @@ class User < ActiveRecord::Base
       else
         return true if self.lifespan == "Average" && lifespan
       end
+    else
+      false
     end
-    false
   end
 end
