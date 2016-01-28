@@ -70,7 +70,7 @@
       <h3>Species</h3>
       <% SwCharacter::SPECIES.each do |spec| %>
             <%= f.label :species, spec, :value => spec %><br>
-            <%= f.radio_button :species_class, spec, {class: "form-control"} %>
+            <%= f.radio_button :species, spec, {class: "form-control"} %>
       <% end %>
     </div>
   </div>
