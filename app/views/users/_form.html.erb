@@ -47,7 +47,7 @@
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
-      <h3>Skin</h3>
+      <h3>Vehicle</h3>
       <% SwCharacter::VEHICLE.each do |vehic| %>
           <%= f.check_box(:vehicle, { :multiple => true, :class => 'form-control' }, vehic, nil) %>
           <%= f.label vehic %>
@@ -57,7 +57,7 @@
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
-      <h3>Skin</h3>
+      <h3>Starship</h3>
       <% SwCharacter::STARSHIP.each do |star| %>
           <%= f.check_box(:starship, { :multiple => true, :class => 'form-control' }, star, nil) %>
           <%= f.label star %>
@@ -67,7 +67,7 @@
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
-      <h3>Skin</h3>
+      <h3>Species</h3>
       <% SwCharacter::SPECIES.each do |spec| %>
           <%= f.check_box(:species, { :multiple => true, :class => 'form-control' }, spec, nil) %>
           <%= f.label spec %>
@@ -77,7 +77,7 @@
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
-      <h3>Skin</h3>
+      <h3>Classification</h3>
       <% SwCharacter::CLASSIFICATION.each do |classif| %>
           <%= f.check_box(:species_class, { :multiple => true, :class => 'form-control' }, classif, nil) %>
           <%= f.label classif %>
@@ -87,7 +87,7 @@
 
     <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
-      <h3>Skin</h3>
+      <h3>Language</h3>
       <% SwCharacter::LANGUAGE.each do |lang| %>
           <%= f.check_box(:language, { :multiple => true, :class => 'form-control' }, lang, nil) %>
           <%= f.label lang %>
