@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   def find_match(characters)
     matches = []
     characters.each do |character|
@@ -12,55 +11,68 @@ class User < ActiveRecord::Base
       match_count += 1 if match_height?(character.height)
       match_count += 1 if match_species?(character.species)
       match_count += 1 if match_species_class?(character.species_class)
-
       matches << [ character.name, match_count]
     end
+    self.match = matches
     matches
   end
-
   def match_hair?(hair)
-    self.hair.include?( hair )
-  end
-
-  def match_eyes?(eyes)
-    self.eyes.include?( eyes )
-  end
-
-  def match_skin?(skin)
-    self.skin.include?( skin )
-  end
-
-  def match_gender?(gender)
-    self.seeking_gender == gender if gender
-  end
-
-  def match_species?(species)
-    if species
-      self.species.include?( species )
+    if hair
+      self.hair == hair
     end
     false
   end
-
+  def match_eyes?(eyes)
+    if eyes
+      self.eyes == eyes
+    end
+    false
+  end
+  def match_skin?(skin)
+    if skin
+      self.skin == skin
+    end
+    false
+  end
+  def match_gender?(gender)
+    if gender
+      self.seeking_gender == gender
+    end
+    false
+  end
+  def match_species?(species)
+    if species
+      self.species == species
+    end
+    false
+  end
   def match_species_class?(species_class)
-    self.species_class.include?( species_class )
+    if species
+      self.species_class == species_class
+    end
+    false
   end
-
   def match_vehicle?(vehicle)
-    vehicle.each do |v|
-      return true if self.vehicle.include?( v )
+    if vehicle
+      vehicle.each do |v|
+        return true if self.vehicle == v
+      end
     end
+    false
   end
-
   def match_starship?(starship)
-    starship.each do |ss|
-      return true if self.starship.include?( ss )
+    if starship
+      starship.each do |ss|
+        return true if self.starship == ss
+      end
+    end
+    false
+  end
+  def match_language?(language)
+    if language
+      self.language == language
     end
   end
-
-  def match_language?(language)
-    self.language.include?( language )
-  end
-
   def match_height?(height)
     short = 100
     tall = 185
@@ -75,7 +87,6 @@ class User < ActiveRecord::Base
     end
     false
   end
-
   def match_weight?(mass)
     hefty = 100
     light = 50
@@ -90,7 +101,6 @@ class User < ActiveRecord::Base
     end
     false
   end
-
   def match_lifespan?(lifespan)
     cutoff = 120
     if lifespan
@@ -104,5 +114,4 @@ class User < ActiveRecord::Base
     end
     false
   end
-
 end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'users#new'
   resources :users
   resources :sw_characters
 
