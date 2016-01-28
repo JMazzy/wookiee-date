@@ -19,7 +19,7 @@
     <div class ="col-sm-3 col-sm-offset-3">
       <h3>Eyes</h3>
         <% SwCharacter::EYES.each do |eyes| %>
-            <%= f.label :eyes, eyes, :value => eyes %><br>
+            <%= f.label :eyes, eyes, :value => eyes, :class => 'radio-inline' %><br>
             <%= f.radio_button :eyes, eyes, {class: "form-control"} %><span class = "glyphicon glyphicon-eye-open"></span>
         <% end %>
     </div>
