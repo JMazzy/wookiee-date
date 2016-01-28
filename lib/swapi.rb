@@ -53,7 +53,7 @@ class Swapi
   def get_people
     get_people = {}
     idx = 1
-    while idx <= 5
+    while idx <= 87
       url = HTTParty.get("http://swapi.co/api/people/#{idx}").parsed_response
       get_people[idx] = url unless url['detail'] == "Not found"
       idx +=1
@@ -65,7 +65,7 @@ class Swapi
   def get_species
     get_species = {}
     idx = 1
-    while idx <= 87
+    while idx <= 37
       url = HTTParty.get("http://swapi.co/api/species/#{idx}").parsed_response
       get_species[idx] = url unless url['detail'] == "Not found"
       idx += 1
