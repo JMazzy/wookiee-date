@@ -20,7 +20,7 @@ class Swapi
       @people[key]['gender'] = value['gender']
       @people[key]['vehicles'] = get_vehicles(value['vehicles']) unless value['vehicles'].empty?
       @people[key]['starships'] = get_starships(value['starships']) unless value['starships'].empty?
-      @people[key]['species'] = set_species(value['species'][0]) unless value['species'].empty?
+      @people[key]['species'] = set_species(value['species'])
     end
   end
 
@@ -90,7 +90,8 @@ class Swapi
   end
 
   def set_species(url)
-    @species[url.match(/(\d+)/)[1].to_i]
+    return "unknown" if url[0].nil?
+    @species[url[0].match(/(\d+)/)[1].to_i]
   end
 
  # TODO refactor the get methods, if possible
