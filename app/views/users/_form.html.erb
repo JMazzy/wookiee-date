@@ -30,70 +30,84 @@
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Hair</h3>
+      <div class="btn-group">
       <% SwCharacter::HAIR.each do |hair| %>
-            <%= f.label :hair, hair, :value => hair %><br>
-            <%= f.radio_button :hair, hair, {class: "form-control"} %>
+            <label class="radio-inline">
+            <%= f.radio_button :hair, hair, {class: "form-control"} %><%= hair %></label>
       <% end %>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Skin</h3>
+      <div class="btn-group">
       <% SwCharacter::SKIN.each do |skin| %>
-            <%= f.label :skin, skin, :value => skin %><br>
-            <%= f.radio_button :skin, skin, {class: "form-control"} %>
+            <label class="radio-inline">
+            <%= f.radio_button :skin, skin, {class: "form-control"} %><%= skin %></label>
       <% end %>
+    </div>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Vehicle</h3>
+      <div class="btn-group">
       <% SwCharacter::VEHICLE.each do |vehic| %>
-          <%= f.label :vehicle, vehic, :value => vehic %><br>
-          <%= f.radio_button :vehicle, vehic, {class: "form-control"} %>
+            <label class="radio-inline">
+          <%= f.radio_button :vehicle, vehic, {class: "form-control"} %><%= vehic %></label>
       <% end %>
+    </div>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Starship</h3>
+      <div class="btn-group">
       <% SwCharacter::STARSHIP.each do |star| %>
-          <%= f.label :starship, star, :value => star %><br>
-          <%= f.radio_button :starship, star, {class: "form-control"} %>
+            <label class="radio-inline">
+          <%= f.radio_button :starship, star, {class: "form-control"} %><%= star %></label>
       <% end %>
+    </div>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Species</h3>
+      <div class="btn-group">
       <% SwCharacter::SPECIES.each do |spec| %>
-            <%= f.label :species, spec, :value => spec %><br>
-            <%= f.radio_button :species, spec, {class: "form-control"} %>
+            <label class="radio-inline">
+            <%= f.radio_button :species, spec, {class: "form-control"} %><%= spec %></label>
       <% end %>
+    </div>
     </div>
   </div>
 
   <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Classification</h3>
+      <div class="btn-group">
       <% SwCharacter::CLASSIFICATION.each do |classif| %>
-            <%= f.label :species_class, classif, :value => classif %><br>
-            <%= f.radio_button :species_class, classif, {class: "form-control"} %>
+            <label class="radio-inline">
+            <%= f.radio_button :species_class, classif, {class: "form-control"} %><%= classif %></label>
       <% end %>
+    </div>
     </div>
   </div>
 
     <div class="row">
     <div class ="col-sm-6 col-sm-offset-3">
       <h3>Language</h3>
+      <div class="btn-group">
       <% SwCharacter::LANGUAGE.each do |lang| %>
-            <%= f.label :language, lang, :value => lang %><br>
-            <%= f.radio_button :language, lang, {class: "form-control"} %>
+            <label class="radio-inline">
+            <%= f.radio_button :language, lang, {class: "form-control"} %><%= lang %></label>
       <% end %>
+    </div>
     </div>
   </div>
 
