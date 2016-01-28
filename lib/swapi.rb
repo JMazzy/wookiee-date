@@ -13,12 +13,13 @@ class Swapi
 
 
   def get_people_attr
-    idx = 1
+
     get_people.each do |key, value|
-      print idx
+
       @people[key] = {}
       @people[key]['name'] = value['name']
       @people[key]['mass'] = value['mass']
+      @people[key]['height'] = value['height']
       @people[key]['hair_color'] = value['hair_color']
       @people[key]['skin_color'] = value['skin_color']
       @people[key]['eye_color'] = value['eye_color']
@@ -26,8 +27,8 @@ class Swapi
       @people[key]['gender'] = value['gender']
       @people[key]['vehicles'] = get_vehicles(value['vehicles']) unless value['vehicles'].empty?
       @people[key]['starships'] = get_starships(value['starships']) unless value['starships'].empty?
-      @people[key]['species'] = set_species(value['species'][0]) unless value['species'].empty?
-      idx +=1
+      @people[key]['species'] = set_species(value['species'])
+
     end
   end
 
@@ -96,7 +97,8 @@ class Swapi
   end
 
   def set_species(url)
-    @species[url.match(/(\d+)/)[1].to_i]
+    return "unknown" if url[0].nil?
+    @species[url[0].match(/(\d+)/)[1].to_i]
   end
 
  # TODO refactor the get methods, if possible
@@ -109,6 +111,4 @@ class Swapi
     end
     get_type
   end
-
-
 end
