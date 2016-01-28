@@ -9,9 +9,7 @@ class Swapi
 
 
   def get_people_attr
-    idx = 1
     get_people.each do |key, value|
-      print idx
       @people[key] = {}
       @people[key]['name'] = value['name']
       @people[key]['mass'] = value['mass']
@@ -23,7 +21,6 @@ class Swapi
       @people[key]['vehicles'] = get_vehicles(value['vehicles']) unless value['vehicles'].empty?
       @people[key]['starships'] = get_starships(value['starships']) unless value['starships'].empty?
       @people[key]['species'] = set_species(value['species'][0]) unless value['species'].empty?
-      idx +=1
     end
   end
 
@@ -68,7 +65,7 @@ class Swapi
   def get_species
     get_species = {}
     idx = 1
-    while idx <= 37
+    while idx <= 87
       url = HTTParty.get("http://swapi.co/api/species/#{idx}").parsed_response
       get_species[idx] = url unless url['detail'] == "Not found"
       idx += 1
