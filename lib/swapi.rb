@@ -1,25 +1,14 @@
-# require 'httparty'
-
-# include HTTParty
-
 class Swapi
-
   attr_reader :people, :species
-
   def initialize
     @people = {}
     @species = {}
   end
-
-
   def get_people_attr
-
     get_people.each do |key, value|
-
       @people[key] = {}
       @people[key]['name'] = value['name']
       @people[key]['mass'] = value['mass']
-      @people[key]['height'] = value['height']
       @people[key]['hair_color'] = value['hair_color']
       @people[key]['skin_color'] = value['skin_color']
       @people[key]['eye_color'] = value['eye_color']
@@ -28,10 +17,8 @@ class Swapi
       @people[key]['vehicles'] = get_vehicles(value['vehicles']) unless value['vehicles'].empty?
       @people[key]['starships'] = get_starships(value['starships']) unless value['starships'].empty?
       @people[key]['species'] = set_species(value['species'])
-
     end
   end
-
   def get_species_attr
     get_species.each do |key, value|
       @species[key] = {}
@@ -41,45 +28,39 @@ class Swapi
       @species[key]['lifespan'] = value['average_lifespan']
     end
   end
-
   def get_vehicles_attr
     get_vehicles.each do |key, value|
       @vehicles[key] = {}
       @vehicles['model'] = value['model']
     end
   end
-
   def get_starships_attr
     get_starships.each do |key, value|
       @vehicles[key] = {}
       @vehicles['model'] = value['model']
     end
   end
-
 # getting attributes from api calls
-
   def get_people
     get_people = {}
     idx = 1
-    while idx <= 2
+    while idx <= 87
       url = HTTParty.get("http://swapi.co/api/people/#{idx}").parsed_response
       get_people[idx] = url unless url['detail'] == "Not found"
       idx +=1
     end
     get_people
   end
-
-
   def get_species
     get_species = {}
     idx = 1
     while idx <= 37
       url = HTTParty.get("http://swapi.co/api/species/#{idx}").parsed_response
       get_species[idx] = url unless url['detail'] == "Not found"
+      idx += 1
     end
     get_species
   end
-
   def get_vehicles(vehicles_url)
     vehicles = []
     vehicles_url.each do |url|
@@ -87,7 +68,6 @@ class Swapi
     end
     vehicles
   end
-
   def get_starships(starships_url)
     starships = []
     starships_url.each do |url|
@@ -95,12 +75,10 @@ class Swapi
     end
     starships
   end
-
   def set_species(url)
     return "unknown" if url[0].nil?
     @species[url[0].match(/(\d+)/)[1].to_i]
   end
-
  # TODO refactor the get methods, if possible
   def get_type(type, count)
     get_type = {}
