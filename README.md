@@ -1,8 +1,12 @@
 Wookiee Date: The Star Wars Dating App
 Make Love, Not (Star) War(s)
 
-Thomas Lo
-Jeff Gisin
-Josh Masland
+Team
+- Joshua Masland
+- Thomas Lo
+- Jeffrey Gisin
 
-Using SWAPI, the Star Wars API
+Project
+- A group API project written in rails.
+- A pseudo-dating-app where you answer questions and get "matched" with a Star Wars character.
+- Using SWAPI, the Star Wars API.
